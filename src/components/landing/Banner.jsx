@@ -18,8 +18,8 @@ function Banner() {
 
       {/* Content */}
       <div className="relative z-10 mx-10 flex flex-col items-start justify-center h-full text-center px-4">
-        <h1 className="text-white text-5xl font-bold mb-4">Welcome to Dot92</h1>
-        <p className="text-white text-lg max-w-xl mb-8">
+        <h1 className="text-white text-5xl font-bold items-start mb-4">Welcome to Dot92</h1>
+        <p className="text-white text-lg max-w-xl mb-8 items-start">
           We build cutting-edge digital experiences that ignite innovation and
           empower growth.
         </p>
