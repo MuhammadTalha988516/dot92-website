@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Drone from "../../assets/Drone.jpg";
+import Drone from "../../assets/drone.jpg";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
