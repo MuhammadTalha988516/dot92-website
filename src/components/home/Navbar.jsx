@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/main logo.png";
 
 function Navbar() {
+  const location = useLocation();
+
+  // Scroll to top on every route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <nav className="absolute top-0 left-0 w-full z-50 px-4 mt-12">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-
+        
         {/* Left: Logo */}
         <div className="flex items-center">
           <img
@@ -20,16 +28,16 @@ function Navbar() {
           {/* Navigation Links */}
           <ul className="flex bg-black/50 border border-orange-500 text-white text-sm font-medium gap-4">
             <li className="w-[140px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black">
-              Electronic Warfare 
+              Electronic Warfare
             </li>
             <li className="w-[160px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black">
               RF & MW Components
             </li>
             <li className="w-[110px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black">
-              About Us
+              <Link to="/about">About Us</Link>
             </li>
             <li className="w-[110px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black">
-              Contact
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
 
