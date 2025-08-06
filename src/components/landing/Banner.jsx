@@ -1,4 +1,4 @@
-import Fire from "../../assets/fire.mp4";
+import Fire from "../../assets/fire.mov";
 
 function Banner() {
   return (
