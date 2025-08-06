@@ -7,7 +7,7 @@ import AboutCompany from "../landing/AboutCompany"
 import OurServices from "../landing/OurServices"
 import LeadingProjects from "../landing/LeadingProjects"
 
-function Home() {``
+function Home() {
   return (
     <>
       <Navbar />

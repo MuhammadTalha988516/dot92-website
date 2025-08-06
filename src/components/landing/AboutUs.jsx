@@ -11,21 +11,48 @@ function AboutUs() {
   const containerRef = useRef(null);
 
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(imageRef.current, {
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 80%", // when image hits 80% from top of viewport
-          toggleActions: "restart none none none", // or "play reverse play reverse" if needed
-        },
-        x: 200,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-      });
-    }, containerRef);
+    // Ensure refs are available
+    if (!containerRef.current || !imageRef.current) {
+      return;
+    }
 
-    return () => ctx.revert(); // Clean up on unmount
+    let ctx;
+    let isActive = true;
+
+    const setupAnimation = () => {
+      if (!isActive) return;
+
+      ctx = gsap.context(() => {
+        gsap.from(imageRef.current, {
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top 80%", // when image hits 80% from top of viewport
+            toggleActions: "restart none none none", // or "play reverse play reverse" if needed
+          },
+          x: 200,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        });
+      }, containerRef);
+    };
+
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(setupAnimation, 0);
+
+    return () => {
+      isActive = false;
+      clearTimeout(timer);
+
+      // Safely revert the GSAP context
+      if (ctx && typeof ctx.revert === 'function') {
+        try {
+          ctx.revert();
+        } catch (error) {
+          console.warn("AboutUs cleanup failed:", error);
+        }
+      }
+    };
   }, []);
 
   return (

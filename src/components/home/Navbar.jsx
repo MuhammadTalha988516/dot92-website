@@ -1,5 +1,7 @@
 import React from "react";
 import Logo from "../../assets/main logo.png";
+import {Link} from "react-router-dom"
+
 
 function Navbar() {
   return (
@@ -20,16 +22,18 @@ function Navbar() {
           {/* Navigation Links */}
           <ul className="flex bg-black/50 border border-orange-500 text-white text-sm font-medium gap-4">
             <li className="w-[140px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black">
-              Electronic Warfare 
+            <Link to="/electronic-warfare">Electronic Warfare</Link>
             </li>
             <li className="w-[160px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black">
               RF & MW Components
             </li>
             <li className="w-[110px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black">
-              About Us
+            <Link to="/about">About Us</Link>
             </li>
-            <li className="w-[110px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black">
-              Contact
+            <li 
+            className="w-[110px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black">
+              
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
 

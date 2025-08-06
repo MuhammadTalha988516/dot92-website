@@ -5,7 +5,7 @@ function Footer() {
     <>
       {/* Divider Line Above Footer */}
       <div className="w-full flex justify-center">
-        <div className="h-[2px] w-3/4 bg-gray-400 my-8"></div>
+        <div className="h-[2px] w-3/4 bg-black my-8"></div>
       </div>
 
       {/* Footer Section */}
