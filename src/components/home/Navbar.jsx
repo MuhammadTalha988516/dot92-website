@@ -17,13 +17,15 @@ function Navbar() {
     <nav className="absolute top-0 left-0 w-full z-50 px-4 mt-12">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
-        {/* Left: Logo */}
+        {/* Left: Logo → routes to home */}
         <div className="flex items-center">
-          <img
-            src={Logo}
-            alt="logo"
-            className="h-20 w-auto object-contain"
-          />
+          <NavLink to="/">
+            <img
+              src={Logo}
+              alt="logo"
+              className="h-20 w-auto object-contain cursor-pointer"
+            />
+          </NavLink>
         </div>
 
         {/* Right: Navigation + Button */}
@@ -34,9 +36,7 @@ function Navbar() {
               <NavLink
                 to="/electronic-warfare"
                 className={({ isActive }) =>
-                  `${linkClasses} ${
-                    isActive ? "bg-orange-600 text-white" : ""
-                  }`
+                  `${linkClasses} ${isActive ? "bg-orange-600 text-white" : ""}`
                 }
               >
                 Electronic Warfare
@@ -46,9 +46,7 @@ function Navbar() {
               <NavLink
                 to="/rf-mw-components"
                 className={({ isActive }) =>
-                  `${linkClasses} ${
-                    isActive ? "bg-orange-600 text-white" : ""
-                  }`
+                  `${linkClasses} ${isActive ? "bg-orange-600 text-white" : ""}`
                 }
               >
                 RF & MW Components
@@ -58,9 +56,7 @@ function Navbar() {
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  `${linkClasses} ${
-                    isActive ? "bg-orange-600 text-white" : ""
-                  }`
+                  `${linkClasses} ${isActive ? "bg-orange-600 text-white" : ""}`
                 }
               >
                 About Us
@@ -70,9 +66,7 @@ function Navbar() {
               <NavLink
                 to="/contact"
                 className={({ isActive }) =>
-                  `${linkClasses} ${
-                    isActive ? "bg-orange-600 text-white" : ""
-                  }`
+                  `${linkClasses} ${isActive ? "bg-orange-600 text-white" : ""}`
                 }
               >
                 Contact

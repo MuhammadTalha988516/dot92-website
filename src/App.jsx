@@ -1,7 +1,7 @@
 import Home from "./components/pages/Home";
 import Contact from "./components/pages/Contact";
 // import EW from "./components/pages/EW";
-import RFComponents from "./components/pages/Rf";
+import RFComponents from "./components/RF and MW/RfandMwbanner";
 // import About from "./components/pages/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
