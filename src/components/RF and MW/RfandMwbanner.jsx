@@ -39,21 +39,31 @@ const RFComponents = () => {
         <Navbar />
       </div>
 
-      {/* Banner Section */}
-      <section className="relative flex-grow w-full flex items-center justify-center overflow-hidden h-[650px]">
-        <img
+      {/* Banner Section with Animation */}
+      <motion.section
+        initial={{ y: -200, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="relative flex-grow w-full flex items-center justify-center overflow-hidden h-[650px]"
+      >
+        <motion.img
           src={RFImage}
           alt="RF and Microwave Components"
           className="absolute inset-0 w-full h-full object-fill"
         />
         <div className="absolute inset-0 bg-black/30"></div>
-        <h1 className="relative text-white text-4xl md:text-6xl font-bold px-4 text-center">
+        <motion.h1
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+          className="relative text-white text-4xl md:text-6xl font-bold px-4 text-center"
+        >
           RF & Microwave Components
-        </h1>
-      </section>
+        </motion.h1>
+      </motion.section>
 
       {/* Cards Section */}
-      <section className="w-full max-w-7xl mx-auto py-24 mt-20 px-6 grid grid-cols-1 md:grid-cols-3 gap-20">
+<section className="w-full max-w-7xl mx-auto py-24 mt-20 px-6 grid grid-cols-1 md:grid-cols-3 gap-20">
         {cards.map((card, index) => {
           const ref = useRef(null);
           const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -66,7 +76,7 @@ const RFComponents = () => {
               animate={isInView ? { x: 0, y: 0, opacity: 1 } : {}}
               whileHover={{
                 scale: 1.25,
-                boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.35)",
+                boxShadow: "0px 25px 50px rgba(0, 0, 0, 0.4)",
               }}
               transition={{ duration: 1, ease: "easeOut" }}
               onClick={() => navigate("/contact")}
@@ -75,18 +85,21 @@ const RFComponents = () => {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
-              className="rounded-lg shadow-md border border-slate-200 p-6 flex flex-col items-center text-center text-white relative cursor-pointer"
+              className="rounded-2xl shadow-lg border border-slate-200 
+                         p-12 min-h-[50px] w-full flex flex-col 
+                         items-center justify-center text-center 
+                         text-white relative cursor-pointer"
             >
-              {/* Dark overlay for better text visibility */}
-              <div className="absolute inset-0 bg-black/40 rounded-lg"></div>
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-black/40 rounded-2xl"></div>
 
               {/* Card content */}
-              <div className="relative z-10">
-                <h5 className="text-white text-xl font-semibold mb-2">
+              <div className="relative z-10 px-4">
+                <h5 className="text-white text-2xl md:text-3xl font-bold mb-4">
                   {card.title}
                 </h5>
-                <p className="text-gray-200 mb-4">{card.desc}</p>
-                <span className="text-orange-400 font-semibold text-sm hover:underline">
+                <p className="text-gray-200 text-lg mb-6">{card.desc}</p>
+                <span className="text-orange-400 font-semibold text-base hover:underline">
                   Learn More →
                 </span>
               </div>
@@ -94,7 +107,6 @@ const RFComponents = () => {
           );
         })}
       </section>
-
       {/* Footer */}
       <Footer />
     </div>
