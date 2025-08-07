@@ -14,19 +14,19 @@ const RFComponents = () => {
   const cards = [
     {
       title: "Active / Passive Components",
-      desc: "Comprehensive solutions for active and passive RF and microwave components including switches, attenuators, and couplers.",
+      desc: "These components are essential in systems that transmit, receive, or process radio signals. They include amplifiers, oscillators, antennas, and filters used in satellite communication, UAV data links, radar systems, and military-grade wireless networks. These components ensure signal strength, clarity, and reliability in high-performance environments.",
       img: active,
       offset: { x: -200, y: -100 },
     },
     {
       title: "MMIC / 8P",
-      desc: "Advanced Monolithic Microwave Integrated Circuits (MMIC) and 8P solutions for high-frequency applications.",
+      desc: "MMIC (Monolithic Microwave Integrated Circuit) and SiP (System-in-Package). are compact, high-performance solutions used in advanced RF and microwave systems. MMICs integrate multiple microwave functions such as amplifiers, mixers, and switches onto a single chip, ideal for applications like radar, SATCOM, and EW. SiPs combine multiple ICs and components into one package, enabling miniaturization and efficiency. ",
       img: MMIC,
       offset: { x: 0, y: 200 },
     },
     {
       title: "RF Circuits",
-      desc: "Custom-designed RF circuit solutions optimized for defense and communication systems.",
+      desc: "These are specialized electronic circuits designed to operate at radio frequencies, typically from MHz to GHz ranges. They include modules like amplifiers, mixers, filters, and oscillators that process and transmit high-frequency signals. RF circuits are fundamental to systems such as radar, SATCOM, UAV communication and secure military radios.",
       img: RFC,
       offset: { x: 200, y: -100 },
     },
@@ -63,7 +63,7 @@ const RFComponents = () => {
       </motion.section>
 
       {/* Cards Section */}
-<section className="w-full max-w-7xl mx-auto py-24 mt-20 px-6 grid grid-cols-1 md:grid-cols-3 gap-20">
+      <section className="w-full max-w-7xl mx-auto py-24 mt-20 px-6 grid grid-cols-1 md:grid-cols-3 gap-20">
         {cards.map((card, index) => {
           const ref = useRef(null);
           const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -75,7 +75,7 @@ const RFComponents = () => {
               initial={{ x: card.offset.x, y: card.offset.y, opacity: 0 }}
               animate={isInView ? { x: 0, y: 0, opacity: 1 } : {}}
               whileHover={{
-                scale: 1.25,
+                scale: 1.2,
                 boxShadow: "0px 25px 50px rgba(0, 0, 0, 0.4)",
               }}
               transition={{ duration: 1, ease: "easeOut" }}
@@ -86,9 +86,9 @@ const RFComponents = () => {
                 backgroundPosition: "center",
               }}
               className="rounded-2xl shadow-lg border border-slate-200 
-                         p-12 min-h-[50px] w-full flex flex-col 
-                         items-center justify-center text-center 
-                         text-white relative cursor-pointer"
+                         p-8 w-full sm:w-[340px] md:w-[380px] h-[420px] 
+                         flex flex-col items-center justify-center text-center 
+                         text-white relative cursor-pointer mx-auto"
             >
               {/* Dark overlay */}
               <div className="absolute inset-0 bg-black/40 rounded-2xl"></div>
@@ -98,7 +98,9 @@ const RFComponents = () => {
                 <h5 className="text-white text-2xl md:text-3xl font-bold mb-4">
                   {card.title}
                 </h5>
-                <p className="text-gray-200 text-lg mb-6">{card.desc}</p>
+                <p className="text-gray-200 text-sm md:text-base mb-6">
+                  {card.desc}
+                </p>
                 <span className="text-orange-400 font-semibold text-base hover:underline">
                   Learn More →
                 </span>
@@ -107,6 +109,7 @@ const RFComponents = () => {
           );
         })}
       </section>
+
       {/* Footer */}
       <Footer />
     </div>

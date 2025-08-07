@@ -1,12 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import image from "../../assets/pexels-photographybynobody-10717015.jpg"
 
-const stats = [
-  { value: "1980", label: "Year of Establishment" },
-  { value: "50+", label: "Projects Completed" },
-  { value: "100+", label: "Professional Employees" },
-  { value: "20+", label: "Business Partners" },
-];
+
 
 export default function AboutCompany() {
   const sectionRef = useRef(null);
@@ -54,31 +49,20 @@ export default function AboutCompany() {
       <div className="absolute inset-0  bg-opacity-50"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-2xl ml-32">
-        <h4 className="text-white text-2xl font-semibold mb-2">Who We Are</h4>
-        <h1 className="text-orange-500 text-5xl font-bold mb-6">
+      <div className="relative z-10 max-w-4xl ml-32">
+        <h4 className="text-white text-4xl font-semibold mb-2">Who We Are</h4>
+        <h1 className="text-orange-500 text-6xl font-bold mb-6">
           About Our Company
         </h1>
-        <p className="text-white text-lg mb-10 leading-relaxed">
-          Since our inception in 1982, we have been at the forefront of
-          electronic warfare solutions, supporting critical defense operations
-          and national security initiatives. Our dedicated team of engineers,
-          analysts, and industry veterans bring decades of experience and
-          passion for innovation.
+        <p className="text-white text-2xl mb-10 max-w-5xl leading-relaxed">
+          Dot92 was established in 2021 and is proudly registered in Islamabad, Pakistan. Our proud partnership with ChengDu Jiaci helps our vision to grow and reach new frontiers. At Dot92, we believe innovation is not just about advanced technology but about solving real-world challenges with precision, purpose, and trust. We work closely with military, government, and private sector clients to create solutions that are tailored, reliable, and built to perform where it matters most.
+        <br />
+        <br />
+        Government, commercial, and research organizations are partnering with DOT92 to tackle their toughest challenges — and you can too
         </p>
-        {/* Stats */}
-        <div className="flex gap-12">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-white text-5xl font-bold mb-2">
-                {stat.value}
-              </div>
-              <div className="text-white text-lg mb-2">{stat.label}</div>
-              <div className="w-12 mx-auto border-b border-white opacity-50"></div>
-            </div>
-          ))}
+          
         </div>
-      </div>
+      
     </section>
   );
 }

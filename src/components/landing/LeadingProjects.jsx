@@ -18,27 +18,23 @@ export default function LeadingProjects() {
         </div>
 
         {/* DETAILS: TEXT + IMAGE */}
-        <div className="flex flex-col md:flex-row items-start gap-12">
+        <div className="flex flex-col md:flex-row items-start gap-20">
           {/* LEFT TEXT */}
           <div className="flex-1 ml-20">
-            <h3 className="text-black text-2xl font-semibold mb-4 border-t-2 border-black pt-4 w-max">
+            <h3 className="text-black text-4xl font-semibold mb-4 border-t-2 border-black pt-4 w-max">
               Electronic Warfare
             </h3>
-            <p className="text-gray-700 mb-4 max-w-md">
-              We are a trusted provider of advanced Electronic Warfare (EW)
-              solutions, enabling superior situational awareness and mission
-              success.
+            <p className="text-gray-700 mb-4 text-2xl max-w-lg">
+            We are a trusted provider of EW solutions, which mainly leverages the electromagnetic spectrum to detect, disrupt, and defend against threats. It’s a critical domain in modern defense for gaining strategic advantage
         
            
-              Our integrated RF and Microwave components empower next-generation
-              defense and communication systems across critical domains.
             </p>
           </div>
 
           {/* RIGHT IMAGE */}
           <div className="flex-1 mr-20">
             <img
-              src="https://images.pexels.com/photos/76971/fighter-jet-fighter-aircraft-f-16-falcon-aircraft-76971.jpeg"
+              src="https://cdn.pixabay.com/photo/2017/09/10/02/56/technology-2734236_1280.jpg"
               alt="Electronic Warfare"
               className="w-full h-100 rounded-md shadow-lg"
             />
@@ -48,7 +44,7 @@ export default function LeadingProjects() {
         
         </div>
 
-        <div className="flex flex-col md:flex-row items-start gap-12 mt-30">
+        <div className="flex flex-col md:flex-row items-start gap-20 mt-40">
           {/* LEFT TEXT */}
 
         <div className="flex-1 ml-20">
@@ -61,27 +57,24 @@ export default function LeadingProjects() {
           
 
           {/* RIGHT IMAGE */}
-            <div className="flex-1 mr-20">
-           <h3 className="text-black text-2xl font-semibold mb-4 border-t-2 border-black pt-4 w-max">
+            <div className="flex-1 mr-20 gap-20">
+           <h3 className="text-black text-4xl font-semibold mb-4 border-t-2 border-black pt-4 w-max">
             Microwave Technology
             </h3>
-            <p className="text-gray-700 mb-4 max-w-md">
-            Our cutting-edge Microwave systems deliver high-performance solutions for advanced radar, secure communications, and electronic warfare applications.
-            Integrated RF and Microwave components ensure next-generation defense capabilities across air, land, sea, and space domains.
+            <p className="text-gray-700 mb-4 text-2xl max-w-lg">
+            Dot92 harnesses Microwave Technology to power high-speed data transmission, precision radar, and secure communication across mission-critical platforms. Integrated Microwave components ensure next-generation defense capabilities across air, land, sea, and space domains.
             </p>
           
         </div>
         </div>
-                <div className="flex flex-col md:flex-row items-start gap-12 mt-20">
+                <div className="flex flex-col md:flex-row items-start gap-20 mt-20">
           {/* LEFT TEXT */}
           <div className="flex-1 ml-20">
-         <h3 className="text-black text-2xl font-semibold mb-4 border-t-2 border-black pt-4 w-max">
+         <h3 className="text-black text-4xl font-semibold mb-4 border-t-2 border-black pt-4 w-max">
             Radio Frequency
             </h3>
-            <p className="text-gray-700 mb-4 max-w-md">
-            Our Radio Frequency (RF) technologies enable reliable, high-speed signal transmission and secure communications across a wide range of mission-critical applications.
-            From precision RF modules to broadband amplifiers and advanced filters, our solutions support modern defense, aerospace, and secure communication systems.
-            </p>
+            <p className="text-gray-700 mb-4 text-2xl max-w-lg">
+           From antennas to transceivers, our RF solutions are engineered for performance, reliability, and mission success in high-demand environments. They enable wireless communication, signal transmission, and sensing across a wide range of defense, aerospace, and telecom applications </p>
 
           </div>
 
