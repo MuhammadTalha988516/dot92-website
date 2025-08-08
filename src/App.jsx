@@ -7,6 +7,7 @@ import RFComponents from "./components/RF and MW/RfandMwbanner";
 import ScrollTriggerCleanup from "./components/helpers/ScrollTriggerCleanup";
 import ErrorBoundary from "./components/helpers/ErrorBoundary";
 
+
 function App() {
   return (
     <ErrorBoundary>

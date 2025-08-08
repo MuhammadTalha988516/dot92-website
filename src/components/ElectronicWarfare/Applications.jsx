@@ -1,21 +1,18 @@
 import React, { useLayoutEffect, useRef } from "react";
-import {
-  Plane,
-  Radar,
-  Zap,
-  Code,
-  ShieldCheck,
-} from "lucide-react";
-
+import { Plane, Radar, Zap, Code, ShieldCheck, TramFront} from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { applicationsData } from "../Data/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function getIcon(name) {
-  const props = { className: "w-12 h-12 text-orange-800" };
-
+  const props = { className: "w-16 h-16 text-orange-800" }; // bigger icons
   switch (name) {
     case "plane":
       return <Plane {...props} />;
@@ -27,93 +24,118 @@ function getIcon(name) {
       return <Code {...props} />;
     case "shieldCheck":
       return <ShieldCheck {...props} />;
+      case "tramFront":
+        return <TramFront {...props} />;
     default:
       return null;
   }
 }
 
-function OurApplications() {
-  const cardsRef = useRef([]);
+function Applications() {
+  const slidesRef = useRef([]);
   const containerRef = useRef(null);
 
   useLayoutEffect(() => {
-    // Ensure refs are available
-    if (!containerRef.current || cardsRef.current.length === 0) {
-      return;
-    }
-
-    let ctx;
-    let isActive = true;
-
-    const setupAnimation = () => {
-      if (!isActive) return;
-
-      ctx = gsap.context(() => {
-        cardsRef.current.forEach((card, index) => {
-          if (card) {
-            gsap.fromTo(
-              card,
-              {
-                opacity: 0,
-                y: 50,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: "power3.out",
-                scrollTrigger: {
-                  trigger: card,
-                  start: "top 80%", // animate when top of card hits 80% of viewport
-                  toggleActions: "play none none none",
-                },
-              }
-            );
+    if (!slidesRef.current.length) return;
+  
+    let ctx = gsap.context(() => {
+      gsap.set(slidesRef.current, { transformPerspective: 1000 });
+  
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top 80%",
+        onEnter: () => runAnimation(),
+        onLeaveBack: () => runAnimation(true), // agar upar se aaye to bhi chale
+      });
+  
+      function runAnimation(isReverse = false) {
+        gsap.fromTo(
+          slidesRef.current,
+          {
+            opacity: 0,
+            y: isReverse ? -80 : 80, // upar se aane par opposite direction
+            rotateY: 70,
+            rotateX: 15,
+            scale: 0.8,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            rotateY: 0,
+            rotateX: 0,
+            scale: 1,
+            duration: 1.2,
+            ease: "back.out(1.7)",
+            stagger: 0.17,
           }
-        });
-      }, containerRef);
-    };
-
-    // Small delay to ensure DOM is ready
-    const timer = setTimeout(setupAnimation, 0);
-
-    return () => {
-      isActive = false;
-      clearTimeout(timer);
-
-      // Safely revert the GSAP context
-      if (ctx && typeof ctx.revert === 'function') {
-        try {
-          ctx.revert();
-        } catch (error) {
-          console.warn("Applications cleanup failed:", error);
-        }
+        );
       }
-    };
+    }, containerRef);
+
+
+    
+  
+    return () => ctx.revert();
   }, []);
+  
+
 
   return (
-    <section ref={containerRef} className="bg-orange-700 text-white py-20 px-4 md:px-20">
+    <section
+      ref={containerRef}
+      className="bg-orange-700 text-white py-20 px-4 md:px-20"
+    >
       <h2 className="text-3xl font-bold mb-12 text-center">Applications</h2>
-      <div className="grid gap-10 md:grid-cols-3">
+
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={50}
+        slidesPerView={3}
+        centeredSlides={true}
+        loop={true}
+        navigation
+        pagination={{ clickable: true }}
+        onSlideChange={(swiper) => {
+          swiper.slides.forEach((slide, idx) => {
+            slide.style.transform = "scale(0.85)";
+            slide.style.opacity = "0.5";
+          });
+          const active = swiper.slides[swiper.activeIndex];
+          active.style.transform = "scale(1)";
+          active.style.opacity = "1";
+        }}
+      >
         {applicationsData.map((item, index) => (
-          <div
-            key={index}
-            ref={(el) => (cardsRef.current[index] = el)}
-            className="relative bg-white text-orange-600 p-6 pt-12 rounded-xl shadow-lg h-[300px] transition-transform hover:scale-110"
-          >
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-yellow-500 rounded-full p-2 shadow-md flex justify-center items-center">
-              {getIcon(item.icon)}
-            </div>
-            <h3 className="text-xl font-semibold mb-2 mt-4 text-center">
-              {item.title}
-            </h3>
-            <p className="text-sm text-gray-600">{item.description}</p>
-          </div>
-        ))}
+  <SwiperSlide key={index}>
+    <div
+      ref={(el) => (slidesRef.current[index] = el)}
+      className="relative bg-white text-orange-600 p-6 pt-16 rounded-xl shadow-lg h-[400px] transition-transform duration-300 hover:-translate-y-3 flex flex-col items-center"
+    >
+      <div className="bg-yellow-500 rounded-full p-4 shadow-md flex justify-center items-center mb-4">
+        {getIcon(item.icon)}
       </div>
+      <h3 className="text-xl font-semibold mb-2 text-center">
+        {item.title}
+      </h3>
+
+      {Array.isArray(item.description) ? (
+        <ul className="list-disc list-inside text-sm text-gray-600 space-y-1 text-left">
+          {item.description.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-sm text-gray-600 text-center">
+          {item.description}
+        </p>
+      )}
+    </div>
+  </SwiperSlide>
+))}
+
+      </Swiper>
     </section>
   );
 }
 
-export default OurApplications;
+export default Applications;

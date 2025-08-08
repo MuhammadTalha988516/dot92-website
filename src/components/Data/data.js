@@ -1,17 +1,14 @@
 
-import { Airplay, Shield, Radio } from "lucide-react";
-import { Radar, Plane, ShieldCheck, Code, Zap } from "lucide-react"; 
-import logo1 from "../../assets/logo1.jpg";
-import logo2 from "../../assets/logo2.png";
-import logo3 from "../../assets/logo3.png";
-import logo4 from "../../assets/logo4.jpg";
-import logo5 from "../../assets/logo5.jpg";
+import { Airplay, Shield, Radio, } from "lucide-react";
+import { Radar, Plane, ShieldCheck, Code, Zap, TramFront} from "lucide-react"; 
+import chengDu from "../../assets/chengDu.jpeg";
+
 import handshake from "../../assets/handshake.jpg"
 import tamsco from "../../assets/tamsco.png"
 import ortus from "../../assets/ortus.png"
 import Expert from "../../assets/expert.jpeg"
 
-export const partnerLogos = [logo1, logo2, logo3, logo4, logo5];
+export const partnerLogos = [chengDu];
 
 export const aboutBannerData = {
     backgroundImage: handshake,
@@ -25,13 +22,13 @@ export const aboutBannerData = {
       logo: tamsco,
       name: 'Tamsco',
       description:
-        'Deals in international trading, energy conservation, construction and governmental tender projects.',
+        'Deals in Energy saving solutions, civil and electric work, specialized equipment & tenders',
     },
     {
       logo: ortus,
       name: 'Ortus',
       description:
-        'Deals in cyber security and IT services across Pakistan, UK & UAE.',
+        'Deals in cybersecurity and IT services across Pakistan UK and UAE',
     },
   ];
 
@@ -57,20 +54,24 @@ export const applicationsData = [
   {
     icon: "plane",
     title: "UAVs",
-    description:
-      "Unmanned Aerial Vehicles (UAVs) play a pivotal role in modern battlefield intelligence. They provide real-time surveillance, target acquisition, and situational awareness while keeping human operators out of harm’s way.",
-  },
+    description: [
+      "Types of UAV’s",
+      "Jammers",
+      "Monitoring & Detection Systems",
+      "AI based Anti-Drone Systems",
+      ]
+    },
   {
     icon: "radar",
-    title: "Anti-UAVs",
+    title: "Flying Wing Unmanned Ariel Vehicle",
     description:
-      "Anti-UAV technologies are essential for detecting, tracking, and neutralizing hostile drones. Using radar systems, RF jamming, and directed energy weapons, we secure airspace against evolving aerial threats.",
+      "Compatible with most existing weapon platforms, they feature simple loading, carrying, and launch procedures, with low operational complexity",
   },
   {
     icon: "zap",
     title: "PGKs",
     description:
-      "Precision Guidance Kits (PGKs) transform conventional munitions into smart weapons. These kits enable pinpoint accuracy, reducing collateral damage and enhancing mission effectiveness in high-risk environments.",
+      "It is a defense technology which adopts GPS, BD Guidance (INS Assistance. Duck Energy Control with continuous two dimensional guidance and extreme correction accuracy.",
   },
   {
     icon: "code",
@@ -80,16 +81,31 @@ export const applicationsData = [
   },
   {
     icon: "shieldCheck",
-    title: "Laser Gun",
+    title: "Laser Gun System",
     description:
-      "Laser-based directed energy weapons offer precision targeting and immediate threat neutralization. Ideal for close-range defense, these systems are silent, cost-effective, and difficult to counter.",
+      "Our system is capable of dazzling or disabling UAV and drone sensors, providing air defense for critical infrastructure, and neutralizing explosive devices or other hazardous objects from a safe distance.",
   },
+  {
+    icon: "tramFront",
+    title: "Heavy Duty Unmanned Helicopter",
+    description:
+    "The unmanned helicopter system is designed to carry out critical tasks such as ammunition delivery, casualty evacuation, equipment and parts transport, and emergency medical supply drops. These operations are made possible through a versatile unmanned airframe equipped for material handling.",
+  }
 ];
 
 
 export const bannerData = {
   image: Expert,
   heading: "Welcome to Our Platform",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quis sint voluptatem optio nam, at soluta consequuntur reprehenderit laudantium ipsam recusandae est eius ad numquam sunt obcaecati nobis veniam? Enim.",
+  paragraphs: [
+    `Dot92, established in 2021 in Islamabad, Pakistan, partners with ChengDu Jiaci 
+    to drive innovation focused on solving real-world challenges with precision and trust. 
+    We work with military, government, and private clients to deliver reliable, tailored solutions.`,
+    
+    `ChengDu Jiaci Technology Co., Ltd., based in Chengdu Science City, Sichuan Province, 
+    has a registered capital of 11.362 billion yuan and invested over 500 million yuan in R&D. 
+    They have developed advanced products, hold 32 invention patents, and own 89 software copyrights.`
+  ]
 };
+
+
