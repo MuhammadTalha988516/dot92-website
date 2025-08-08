@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+.swiper-pagination {
+    position: relative !important; /* default absolute hatao */
+    margin-top: 20px; /* dots ko neeche push karo */
+  }
+  
+  
+  

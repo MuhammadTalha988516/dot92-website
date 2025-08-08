@@ -67,7 +67,7 @@ const AboutBanner = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen w-full flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      className="relative min-h-[800px] w-full  flex items-center justify-center bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url(${aboutBannerData.backgroundImage})`,
       }}

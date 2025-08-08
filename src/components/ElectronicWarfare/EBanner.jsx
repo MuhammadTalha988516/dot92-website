@@ -9,53 +9,34 @@ function EBanner() {
   useEffect(() => {
     gsap.fromTo(
       headingRef.current,
-      {
-        opacity: 0,
-        y: 100,
-        rotateX: 90,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        rotateX: 0,
-        duration: 1.2,
-        ease: "power3.out",
-      }
+      { opacity: 0, y: 100, rotateX: 90 },
+      { opacity: 1, y: 0, rotateX: 0, duration: 1.2, ease: "power3.out" }
     );
 
     gsap.fromTo(
       paragraphRef.current,
-      {
-        opacity: 0,
-        y: 100,
-        rotateX: 90,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        rotateX: 0,
-        duration: 1.4,
-        delay: 0.3,
-        ease: "power3.out",
-      }
+      { opacity: 0, y: 100, rotateX: 90 },
+      { opacity: 1, y: 0, rotateX: 0, duration: 1.4, delay: 0.3, ease: "power3.out" }
     );
   }, []);
 
   return (
     <div className="relative">
-      {/* Background Image from data */}
       <div
         className="h-[500px] w-full bg-cover bg-center"
         style={{ backgroundImage: `url(${bannerData.image})` }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0  bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-4">
+        <div className="absolute inset-0 mt-12 bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-4">
           <h1 ref={headingRef} className="text-4xl md:text-6xl font-bold mb-4">
             {bannerData.heading}
           </h1>
-          <p ref={paragraphRef} className="max-w-2xl text-lg">
-            {bannerData.description}
-          </p>
+
+          {/* paragraphRef ab container pe */}
+          <div ref={paragraphRef} className="max-w-2xl text-lg space-y-4">
+            {bannerData.paragraphs.map((para, index) => (
+              <p key={index}>{para}</p>
+            ))}
+          </div>
         </div>
       </div>
     </div>
