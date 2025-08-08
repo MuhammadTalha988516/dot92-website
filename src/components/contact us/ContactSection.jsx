@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -23,30 +22,19 @@ const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs
-      .send(
-        "YOUR_SERVICE_ID", // replace
-        "YOUR_TEMPLATE_ID", // replace
-        formData,
-        "YOUR_PUBLIC_KEY" // replace
-      )
-      .then(
-        () => {
-          alert("✅ Your message has been sent!");
-          setFormData({
-            firstName: "",
-            lastName: "",
-            companyName: "",
-            email: "",
-            contactNo: "",
-            inquiry: "",
-          });
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          alert("❌ Failed to send message. Please try again.");
-        }
-      );
+    // You can replace this with your own backend API call
+    console.log("Form submitted:", formData);
+
+    alert("✅ Your message has been recorded!");
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      companyName: "",
+      email: "",
+      contactNo: "",
+      inquiry: "",
+    });
   };
 
   return (
@@ -172,11 +160,11 @@ const ContactSection = () => {
           style={{
             backgroundImage:
               "url('https://cdn.pixabay.com/photo/2024/03/19/15/37/call-center-8643475_1280.jpg')",
-            backgroundSize: "90% 50%",
+            backgroundSize: "80% 55%",
           }}
         >
           <h2 className="text-2xl font-bold mb-2">We are here to help!</h2>
-          <p className="text-sm mb-6 max-w-md">
+          <p className="text-sm mb-6 max-w-sm">
             No matter what stage your idea or project is in. Let’s meet to
             discuss and plan the next steps to make it happen in the most
             efficient way. 👏

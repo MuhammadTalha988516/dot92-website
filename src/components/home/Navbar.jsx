@@ -28,9 +28,19 @@ function Navbar() {
         </div>
 
         {/* Right: Navigation + Button */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center ">
           {/* Navigation Links */}
-          <ul className="flex bg-black/50 border border-orange-500 text-white text-sm font-medium gap-4">
+          <ul className="flex bg-black/50 border border-orange-500 text-white text-sm font-medium ">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `${linkClasses} ${isActive ? "bg-orange-600 text-white" : ""}`
+                }
+              >
+                Home
+              </NavLink>
+            </li>
             <li>
               <NavLink
                 to="/electronic-warfare"
@@ -40,7 +50,8 @@ function Navbar() {
               >
                 Electronic Warfare
               </NavLink>
-            </li>
+              </li>
+
             <li>
               <NavLink
                 to="/rf-mw-components"
