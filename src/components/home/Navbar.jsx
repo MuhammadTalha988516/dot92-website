@@ -1,36 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import Logo from "../../assets/main logo.png";
+import { Menu, X } from "lucide-react";
+import Logo from "../../assets/main logo.webp";
 
 function Navbar() {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Scroll to top on every route change
   useEffect(() => {
     window.scrollTo(0, 0);
+    setMenuOpen(false);
   }, [location.pathname]);
 
   const linkClasses =
     "w-[140px] h-[52px] flex items-center justify-center text-center cursor-pointer transition-all hover:bg-white hover:text-black";
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 px-4 mt-12">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Left: Logo → routes to home */}
-        <div className="flex items-center">
-          <NavLink to="/">
-            <img
-              src={Logo}
-              alt="logo"
-              className="h-20 w-auto object-contain cursor-pointer"
-            />
-          </NavLink>
-        </div>
+    <nav className="absolute top-0 left-0 w-full z-50 px-4 mt-6">
+      <div className="max-w-7xl mx-auto flex items-center justify-between flex-nowrap">
+        
+        {/* Logo */}
+        <NavLink to="/" className="flex-shrink-0">
+          <img
+            src={Logo}
+            alt="logo"
+            className="h-20 w-auto object-contain cursor-pointer"
+          />
+        </NavLink>
 
-        {/* Right: Navigation + Button */}
-        <div className="flex items-center ">
-          {/* Navigation Links */}
-          <ul className="flex bg-black/50 border border-orange-500 text-white text-sm font-medium ">
+        {/* Hamburger (Mobile Only) */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-white ml-4 flex-shrink-0"
+        >
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center flex-grow justify-end">
+          <ul className="flex bg-black/50 border border-orange-500 text-white text-sm font-medium">
             <li>
               <NavLink
                 to="/"
@@ -50,8 +58,7 @@ function Navbar() {
               >
                 Electronic Warfare
               </NavLink>
-              </li>
-
+            </li>
             <li>
               <NavLink
                 to="/rf-mw-components"
@@ -83,13 +90,50 @@ function Navbar() {
               </NavLink>
             </li>
           </ul>
-
-          {/* Call Now Button */}
           <button className="bg-orange-600 text-white px-6 py-[18px] font-semibold hover:bg-orange-700 cursor-pointer transition">
             Call Now
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden absolute top-[90px] left-0 w-full bg-black/90 text-white flex flex-col items-center space-y-2 py-4">
+          <NavLink
+            to="/"
+            className="py-3 w-full text-center hover:bg-orange-600"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/electronic-warfare"
+            className="py-3 w-full text-center hover:bg-orange-600"
+          >
+            Electronic Warfare
+          </NavLink>
+          <NavLink
+            to="/rf-mw-components"
+            className="py-3 w-full text-center hover:bg-orange-600"
+          >
+            RF & MW Components
+          </NavLink>
+          <NavLink
+            to="/about"
+            className="py-3 w-full text-center hover:bg-orange-600"
+          >
+            About Us
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className="py-3 w-full text-center hover:bg-orange-600"
+          >
+            Contact
+          </NavLink>
+          <button className="bg-orange-600 text-white px-6 py-3 font-semibold w-full hover:bg-orange-700">
+            Call Now
+          </button>
+        </div>
+      )}
     </nav>
   );
 }

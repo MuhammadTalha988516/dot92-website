@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/main logo.png";
+import Logo from "../../assets/main logo.webp";
 
 function Footer() {
   return (
@@ -42,16 +42,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Social Links Section */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-            <ul className="space-y-2">
-              <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a></li>
-              <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Twitter</a></li>
-              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Instagram</a></li>
-            </ul>
-          </div>
-
+          
           {/* Vertical Line + Contact Us Button */}
           <div className="flex flex-col items-center border-l-3 border-black pl-6">
             <p className="mb-4 text-center text-lg">Get in touch with us for more information.</p>

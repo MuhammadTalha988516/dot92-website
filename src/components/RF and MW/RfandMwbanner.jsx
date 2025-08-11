@@ -3,10 +3,10 @@ import { motion, useInView } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
-import RFImage from "../../assets/rf.jpg";
-import active from "../../assets/active.jpg";
-import RFC from "../../assets/RFCir.jpg";
-import MMIC from "../../assets/MMIC.jpg";
+import RFImage from "../../assets/rf.webp";
+import active from "../../assets/active1.webp";
+import RFC from "../../assets/RFCir.webp";
+import MMIC from "../../assets/MMIC.webp";
 
 const RFComponents = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const RFComponents = () => {
     },
     {
       title: "MMIC / 8P",
-      desc: "MMIC (Monolithic Microwave Integrated Circuit) and SiP (System-in-Package). are compact, high-performance solutions used in advanced RF and microwave systems. MMICs integrate multiple microwave functions such as amplifiers, mixers, and switches onto a single chip, ideal for applications like radar, SATCOM, and EW. SiPs combine multiple ICs and components into one package, enabling miniaturization and efficiency. ",
+      desc: "MMIC (Monolithic Microwave Integrated Circuit) and SiP (System-in-Package) are compact, high-performance solutions used in advanced RF and microwave systems. MMICs integrate multiple microwave functions such as amplifiers, mixers, and switches onto a single chip, ideal for applications like radar, SATCOM, and EW. SiPs combine multiple ICs and components into one package, enabling miniaturization and efficiency.",
       img: MMIC,
       offset: { x: 0, y: 200 },
     },
@@ -39,12 +39,12 @@ const RFComponents = () => {
         <Navbar />
       </div>
 
-      {/* Banner Section with Animation */}
+      {/* Banner Section */}
       <motion.section
         initial={{ y: -200, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="relative flex-grow w-full flex items-center justify-center overflow-hidden h-[650px]"
+        className="relative flex-grow w-full flex items-center justify-center overflow-hidden h-[350px] sm:h-[450px] md:h-[650px]"
       >
         <motion.img
           src={RFImage}
@@ -56,14 +56,14 @@ const RFComponents = () => {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-          className="relative text-white text-4xl md:text-6xl font-bold px-4 text-center"
+          className="relative text-white text-2xl sm:text-4xl md:text-6xl font-bold px-4 text-center"
         >
           RF & Microwave Components
         </motion.h1>
       </motion.section>
 
       {/* Cards Section */}
-      <section className="w-full max-w-7xl mx-auto py-24 mt-20 px-6 grid grid-cols-1 md:grid-cols-3 gap-20">
+      <section className="w-full max-w-7xl mx-auto py-12 sm:py-16 md:py-24 mt-10 px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 md:gap-20">
         {cards.map((card, index) => {
           const ref = useRef(null);
           const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -75,8 +75,11 @@ const RFComponents = () => {
               initial={{ x: card.offset.x, y: card.offset.y, opacity: 0 }}
               animate={isInView ? { x: 0, y: 0, opacity: 1 } : {}}
               whileHover={{
-                scale: 1.2,
-                boxShadow: "0px 25px 50px rgba(0, 0, 0, 0.4)",
+                scale: window.innerWidth >= 768 ? 1.05 : 1,
+                boxShadow:
+                  window.innerWidth >= 768
+                    ? "0px 25px 50px rgba(0, 0, 0, 0.4)"
+                    : "none",
               }}
               transition={{ duration: 1, ease: "easeOut" }}
               onClick={() => navigate("/contact")}
@@ -86,7 +89,7 @@ const RFComponents = () => {
                 backgroundPosition: "center",
               }}
               className="rounded-2xl shadow-lg border border-slate-200 
-                         p-8 w-full sm:w-[340px] md:w-[380px] h-[420px] 
+                         p-6 sm:p-8 w-full min-h-[360px]
                          flex flex-col items-center justify-center text-center 
                          text-white relative cursor-pointer mx-auto"
             >
@@ -94,14 +97,14 @@ const RFComponents = () => {
               <div className="absolute inset-0 bg-black/40 rounded-2xl"></div>
 
               {/* Card content */}
-              <div className="relative z-10 px-4">
-                <h5 className="text-white text-2xl md:text-3xl font-bold mb-4">
+              <div className="relative z-10 px-2 sm:px-4 flex flex-col">
+                <h5 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-3">
                   {card.title}
                 </h5>
-                <p className="text-gray-200 text-sm md:text-base mb-6">
+                <p className="text-gray-200 text-xs sm:text-sm md:text-base mb-4 sm:mb-6">
                   {card.desc}
                 </p>
-                <span className="text-orange-400 font-semibold text-base hover:underline">
+                <span className="text-orange-400 font-semibold text-sm sm:text-base hover:underline">
                   Learn More →
                 </span>
               </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import image from "../../assets/pexels-photographybynobody-10717015.jpg"
+import image from "../../assets/pexels-photographybynobody-10717015.webp"
 
 
 
