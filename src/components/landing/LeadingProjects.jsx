@@ -21,7 +21,7 @@ export default function LeadingProjects() {
         <div className="flex flex-col md:flex-row items-start gap-20">
           {/* LEFT TEXT */}
           <div className="flex-1 ml-20">
-            <h3 className="text-black text-4xl font-semibold mb-4 border-t-2 border-black pt-4 w-max">
+            <h3 className="text-black text-4xl font-semibold mb-4 border-t-2 border-orange-600 pt-4 w-max">
               Electronic Warfare
             </h3>
             <p className="text-gray-700 mb-4 text-2xl max-w-lg">
@@ -58,7 +58,7 @@ export default function LeadingProjects() {
 
           {/* RIGHT IMAGE */}
             <div className="flex-1 mr-20 gap-20">
-           <h3 className="text-black text-4xl font-semibold mb-4 border-t-2 border-black pt-4 w-max">
+           <h3 className="text-black text-4xl font-semibold mb-4 border-t-2 border-orange-600 pt-4 w-max">
             Microwave Technology
             </h3>
             <p className="text-gray-700 mb-4 text-2xl max-w-lg">
@@ -70,7 +70,7 @@ export default function LeadingProjects() {
                 <div className="flex flex-col md:flex-row items-start gap-20 mt-20">
           {/* LEFT TEXT */}
           <div className="flex-1 ml-20">
-         <h3 className="text-black text-4xl font-semibold mb-4 border-t-2 border-black pt-4 w-max">
+         <h3 className="text-black text-4xl font-semibold mb-4 border-t-2 border-orange-600 pt-4 w-max">
             Radio Frequency
             </h3>
             <p className="text-gray-700 mb-4 text-2xl max-w-lg">

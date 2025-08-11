@@ -57,7 +57,7 @@ function Footer() {
             <p className="mb-4 text-center text-lg">Get in touch with us for more information.</p>
             <Link
               to="/contact"
-              className="bg-orange-500 text-white text-lg px-4 py-2 rounded hover:bg-orange-700"
+              className="bg-orange-700 text-white text-lg px-4 py-2 rounded hover:bg-orange-500"
             >
               Contact Us
             </Link>

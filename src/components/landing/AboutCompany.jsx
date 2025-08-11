@@ -55,9 +55,10 @@ export default function AboutCompany() {
           About Our Company
         </h1>
         <p className="text-white text-2xl mb-10 max-w-5xl leading-relaxed">
-          Dot92 was established in 2021 and is proudly registered in Islamabad, Pakistan. Our proud partnership with ChengDu Jiaci helps our vision to grow and reach new frontiers. At Dot92, we believe innovation is not just about advanced technology but about solving real-world challenges with precision, purpose, and trust. We work closely with military, government, and private sector clients to create solutions that are tailored, reliable, and built to perform where it matters most.
+          Dot92 was established in 2021 and is proudly registered in Islamabad, Pakistan. Our proud partnership with ChengDu Jiaci helps our vision to grow and reach new frontiers. At Dot92, we believe innovation is not just about advanced technology but about solving real-world challenges with precision, purpose, and trust. We work closely with military, government, and private sector clients to create solutions that are tailored, reliable, and built to perform where it matters most. </p>
         <br />
         <br />
+        <p className="text-orange-500 text-3xl mb-10 max-w-5xl leading-relaxed font-bold">
         Government, commercial, and research organizations are partnering with DOT92 to tackle their toughest challenges — and you can too
         </p>
           
