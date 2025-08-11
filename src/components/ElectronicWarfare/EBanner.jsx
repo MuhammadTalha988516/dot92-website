@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { bannerData } from "../Data/data";
 
-function EBanner() {
+export default function EBanner() {
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
 
@@ -31,7 +31,6 @@ function EBanner() {
             {bannerData.heading}
           </h1>
 
-          {/* paragraphRef ab container pe */}
           <div ref={paragraphRef} className="max-w-2xl text-lg space-y-4">
             {bannerData.paragraphs.map((para, index) => (
               <p key={index}>{para}</p>
@@ -42,5 +41,3 @@ function EBanner() {
     </div>
   );
 }
-
-export default EBanner;
