@@ -44,10 +44,10 @@ export default function AboutCompany() {
         />
       </div>
 
-      {/* Dark Overlay */}
+      
       <div className="absolute inset-0  bg-opacity-50"></div>
 
-      {/* Content */}
+      
       <div className="relative z-10 max-w-4xl ml-8 sm:ml-16 md:ml-32">
         <h4 className="text-white text-3xl sm:text-4xl font-semibold mb-2">
           Who We Are
