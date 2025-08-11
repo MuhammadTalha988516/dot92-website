@@ -23,15 +23,19 @@ function Banner() {
           Welcome to Dot92
         </h1>
         <p className="text-white text-base sm:text-lg max-w-xl mb-8">
-          We build cutting-edge digital experiences that ignite innovation and
-          empower growth.
+         Partners in Capacity Building
         </p>
+        <p className="text-white max-w-xl text-lg">
+          Dot92 is a specialized company providing advanced RF and microwave solutions. Our core business focuses on electronic countermeasures and intelligent unmanned systems. We proudly serve both public and private sector clients, offering customized EW technologies that enhance situational awareness and threat detection
+        </p>
+        <br />
+        <br />
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             to="/contact"
-            className="px-6 py-3 bg-orange-600 text-black font-semibold rounded hover:bg-gray-200 transition"
+            className="px-6 py-3 bg-orange-600 text-white font-semibold rounded hover:bg-orange-800 transition"
           >
-            Get Started
+            Join Us
           </Link>
           <Link
             to="/about"

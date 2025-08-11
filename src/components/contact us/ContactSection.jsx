@@ -39,7 +39,7 @@ const ContactSection = () => {
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      className="min-h-screen flex flex-col items-center justify-center bg-white py-36 px-4"
+      className="min-h-screen flex flex-col items-center justify-center bg-white py-36 px-4 mt-10"
     >
       <div className="w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
         {/* Left: Contact Form */}

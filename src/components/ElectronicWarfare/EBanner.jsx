@@ -22,20 +22,28 @@ export default function EBanner() {
 
   return (
     <div className="relative">
+      {/* Banner background only for upper portion */}
       <div
-        className="h-[500px] w-full bg-cover bg-center"
-        style={{ backgroundImage: `url(${bannerData.image})` }}
+        className="h-[100vh] w-full bg-cover bg-no-repeat relative"
+        style={{
+          backgroundImage: `url(${bannerData.image})`,
+          backgroundPosition: "center top", // Keeps crop from top
+        }}
       >
-        <div className="absolute inset-0 mt-12 bg-opacity-50 flex flex-col items-center justify-center text-center text-white px-4">
-          <h1 ref={headingRef} className="text-4xl md:text-6xl font-bold mb-4">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white px-4">
+          <h1
+            ref={headingRef}
+            className="text-2xl md:text-7xl font-bold mb-4 drop-shadow-lg"
+          >
             {bannerData.heading}
           </h1>
-
-          <div ref={paragraphRef} className="max-w-2xl text-lg space-y-4">
-            {bannerData.paragraphs.map((para, index) => (
-              <p key={index}>{para}</p>
-            ))}
-          </div>
+          <p
+            ref={paragraphRef}
+            className="max-w-3xl text-base md:text-lg text-gray-200 drop-shadow-md"
+          >
+            {bannerData.paragraph}
+          </p>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ const AboutBanner = () => {
         duration: 1,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
+          start: 'top 100%',
         },
       });
 
@@ -32,7 +32,7 @@ const AboutBanner = () => {
         delay: 0.3,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
+          start: 'top 100%',
         },
       });
     }, sectionRef);
@@ -41,24 +41,29 @@ const AboutBanner = () => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-[500px] sm:min-h-[650px] lg:min-h-[800px] w-full flex items-center justify-center bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url(${aboutBannerData.backgroundImage})`,
-      }}
-    >
+<section
+  ref={sectionRef}
+  className="relative min-h-[500px] sm:min-h-[650px] lg:min-h-[800px] w-full flex items-center justify-center bg-no-repeat bg-cover"
+  style={{
+    backgroundImage: `url(${aboutBannerData.backgroundImage})`,
+    backgroundPosition: "center",
+    backgroundSize: "100%", // zoom in so only 1 drone fits
+  }}
+>
+
+
+
       <div className="absolute inset-0  bg-opacity-60 z-0"></div>
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-12">
+      <div className=" flex flex-col items-center justify-center text-center text-white px-4">
         <h1
           ref={titleRef}
-          className="text-white text-3xl sm:text-4xl lg:text-6xl font-extrabold mb-4"
+          className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-10"
         >
           {aboutBannerData.title}
         </h1>
         <p
           ref={textRef}
-          className="text-gray-200 text-base sm:text-lg lg:text-xl max-w-xl sm:max-w-2xl mx-auto"
+          className="text-gray-200 text-lg sm:text-xl lg:text-2xl max-w-4xl sm:max-w-5xl mx-auto"
         >
           {aboutBannerData.description}
         </p>

@@ -1,18 +1,18 @@
 import chengDu from "../../assets/chengDu.webp";
-import handshake from "../../assets/about.webp";
+import Expert from "../../assets/drone.webp";
 import tamsco from "../../assets/tamsco.webp";
 import ortus from "../../assets/ortus.webp";
-import Expert from "../../assets/expert.webp";
+import about from "../../assets/about.webp"
 import { MdAirplay } from "react-icons/md";
 import { FaShieldAlt, FaBroadcastTower } from "react-icons/fa";
 
 export const partnerLogos = [chengDu];
 
 export const aboutBannerData = {
-  backgroundImage: handshake,
-  title: "About Us",
+  backgroundImage: about ,  
+  title: "Welcome to Our Platform",
   description:
-    "We’re a team of passionate creatives and developers building innovative solutions that move people and businesses forward.",
+    "Dot92 was established in 2021 and is proudly registered in Islamabad, Pakistan. Our proud partnership with ChengDu Jiaci helps our vision to grow and reach new frontiers. At Dot92, we believe innovation is not just about advanced technology but about solving real-world challenges with precision, purpose, and trust. We work closely with military, government, and private sector clients to create solutions that are tailored, reliable, and built to perform where it matters most.Chengdu Jiaci Technology Co., Ltd. was established in Chengdu, with a registered capital in Chengdu Science City, Tianfu New District, Sichuan Province. Registered capital 11362 million yuan",
 };
 
 export const ouraffiliates = [
@@ -93,14 +93,6 @@ export const applicationsData = [
 
 export const bannerData = {
   image: Expert,
-  heading: "Welcome to Our Platform",
-  paragraphs: [
-    `Dot92, established in 2021 in Islamabad, Pakistan, partners with ChengDu Jiaci 
-    to drive innovation focused on solving real-world challenges with precision and trust. 
-    We work with military, government, and private clients to deliver reliable, tailored solutions.`,
-
-    `ChengDu Jiaci Technology Co., Ltd., based in Chengdu Science City, Sichuan Province, 
-    has a registered capital of 11.362 billion yuan and invested over 500 million yuan in R&D. 
-    They have developed advanced products, hold 32 invention patents, and own 89 software copyrights.`,
-  ],
+  heading: "Electronic Warfare",
+  
 };
