@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import image from "../../assets/tank.webp"
-
-
+import image from "../../assets/tank.webp";
 
 export default function AboutCompany() {
   const sectionRef = useRef(null);
@@ -34,14 +32,15 @@ export default function AboutCompany() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-[1400px] flex items-center justify-start mt-20 overflow-hidden"
+      className="relative w-full h-[1400px] md:h-[1100px] sm:h-[800px] flex items-center justify-start mt-20 overflow-hidden"
     >
       {/* Parallax Image */}
       <div className="absolute inset-0 overflow-hidden">
         <img
           ref={imageRef}
           src={image}
-          className="w-full h-[120%] object-cover will-change-transform"
+          className="w-full h-[120%] sm:h-[130%] md:h-[120%] object-cover will-change-transform"
+          alt="Company Tank"
         />
       </div>
 
@@ -49,21 +48,29 @@ export default function AboutCompany() {
       <div className="absolute inset-0  bg-opacity-50"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl ml-32">
-        <h4 className="text-white text-4xl font-semibold mb-2">Who We Are</h4>
-        <h1 className="text-orange-500 text-6xl font-bold mb-6">
+      <div className="relative z-10 max-w-4xl ml-8 sm:ml-16 md:ml-32">
+        <h4 className="text-white text-3xl sm:text-4xl font-semibold mb-2">
+          Who We Are
+        </h4>
+        <h1 className="text-orange-500 text-4xl sm:text-6xl font-bold mb-6">
           About Our Company
         </h1>
-        <p className="text-white text-2xl mb-10 max-w-5xl leading-relaxed">
-          Dot92 was established in 2021 and is proudly registered in Islamabad, Pakistan. Our proud partnership with ChengDu Jiaci helps our vision to grow and reach new frontiers. At Dot92, we believe innovation is not just about advanced technology but about solving real-world challenges with precision, purpose, and trust. We work closely with military, government, and private sector clients to create solutions that are tailored, reliable, and built to perform where it matters most. </p>
-        <br />
-        <br />
-        <p className="text-orange-500 text-3xl mb-10 max-w-5xl leading-relaxed font-bold">
-        Government, commercial, and research organizations are partnering with DOT92 to tackle their toughest challenges — and you can too
+        <p className="text-white text-lg sm:text-xl md:text-2xl mb-10 max-w-5xl leading-relaxed">
+          Dot92 was established in 2021 and is proudly registered in Islamabad,
+          Pakistan. Our proud partnership with ChengDu Jiaci helps our vision to
+          grow and reach new frontiers. At Dot92, we believe innovation is not
+          just about advanced technology but about solving real-world challenges
+          with precision, purpose, and trust. We work closely with military,
+          government, and private sector clients to create solutions that are
+          tailored, reliable, and built to perform where it matters most.
         </p>
-          
-        </div>
-      
+        <br />
+        <br />
+        <p className="text-orange-500 text-xl sm:text-3xl mb-10 max-w-5xl leading-relaxed font-bold">
+          Government, commercial, and research organizations are partnering with
+          DOT92 to tackle their toughest challenges — and you can too
+        </p>
+      </div>
     </section>
   );
 }

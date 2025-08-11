@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import cbg from "../../assets/cbg.webp";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -21,12 +22,8 @@ const ContactSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // You can replace this with your own backend API call
     console.log("Form submitted:", formData);
-
     alert("✅ Your message has been recorded!");
-
     setFormData({
       firstName: "",
       lastName: "",
@@ -45,7 +42,6 @@ const ContactSection = () => {
       className="min-h-screen flex flex-col items-center justify-center bg-white py-36 px-4"
     >
       <div className="w-full max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-        
         {/* Left: Contact Form */}
         <div>
           <h3 className="text-sm font-medium text-gray-900 uppercase mb-2">
@@ -156,20 +152,19 @@ const ContactSection = () => {
 
         {/* Right: Background image + text */}
         <div
-          className="flex flex-col justify-center items-center text-center p-8 rounded-md text-white bg-center bg-no-repeat"
+          className="flex flex-col justify-center items-center text-center p-8 rounded-md text-white bg-center bg-no-repeat min-h-[600px]"
           style={{
-            backgroundImage:
-              "url('https://cdn.pixabay.com/photo/2024/03/19/15/37/call-center-8643475_1280.jpg')",
-            backgroundSize: "80% 55%",
+            backgroundImage: `url(${cbg})`,
+            backgroundSize: "contain",
           }}
         >
           <h2 className="text-2xl font-bold mb-2">We are here to help!</h2>
           <p className="text-sm mb-6 max-w-sm">
             No matter what stage your idea or project is in. Let’s meet to
             discuss and plan the next steps to make it happen in the most
-            efficient way. 👏
+            efficient way.
           </p>
-          <button className="bg-orange-600 text-white px-5 py-2 rounded-md hover:bg-orange-700 text-center items-center transition-all w-fit">
+          <button className="bg-orange-600 text-white px-5 py-2 rounded-md hover:bg-orange-700 transition-all w-fit">
             Schedule a Call
           </button>
         </div>
