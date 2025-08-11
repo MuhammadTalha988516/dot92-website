@@ -14,37 +14,81 @@ gsap.registerPlugin(ScrollTrigger);
 
 const OurTeam = () => {
   const chartWrapperRef = useRef(null);
+  const chartRef = useRef(null);
   const textRef = useRef(null);
   const sectionRef = useRef(null);
 
   useLayoutEffect(() => {
-    if (!sectionRef.current || !chartWrapperRef.current || !textRef.current) return;
+    // Ensure refs are available
+    if (!sectionRef.current || !chartWrapperRef.current || !textRef.current) {
+      return;
+    }
 
+    let triggerInstance;
     let ctx;
-    ctx = gsap.context(() => {
-      const tl = gsap.timeline();
+    let isActive = true;
 
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=700",
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-        animation: tl,
-      });
+    const setupAnimation = () => {
+      if (!isActive) return;
 
-      tl.to(chartWrapperRef.current, { x: "-10vw", duration: 1 });
-      tl.fromTo(
-        textRef.current,
-        { opacity: 0, x: 100 },
-        { opacity: 1, x: 0, duration: 1 },
-        "-=0.5"
-      );
-    }, sectionRef);
+      ctx = gsap.context(() => {
+        const tl = gsap.timeline();
 
-    return () => ctx?.revert();
+        triggerInstance = ScrollTrigger.create({
+          id: "our-team-trigger",
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=700",
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+          animation: tl,
+          onRefresh: () => {
+            // Ensure the trigger is still valid
+            if (!isActive || !sectionRef.current) {
+              triggerInstance?.kill();
+            }
+          }
+        });
+
+        tl.to(chartWrapperRef.current, { x: "-20vw", duration: 1 });
+
+        tl.fromTo(
+          textRef.current,
+          { opacity: 0, x: 100 },
+          { opacity: 1, x: 0, duration: 1 },
+          "-=0.5"
+        );
+      }, sectionRef);
+    };
+
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(setupAnimation, 0);
+
+    return () => {
+      isActive = false;
+      clearTimeout(timer);
+
+      // Kill trigger first
+      if (triggerInstance && !triggerInstance._killed) {
+        try {
+          triggerInstance.kill();
+        } catch (error) {
+          console.warn("Failed to kill trigger:", error);
+        }
+      }
+
+      // Then revert context
+      if (ctx && typeof ctx.revert === 'function') {
+        try {
+          ctx.revert();
+        } catch (error) {
+          console.warn("Failed to revert context:", error);
+        }
+      }
+    };
   }, []);
+  
 
   const pieData = {
     labels: ["Entry Level", "Mid Level", "Senior Level"],
@@ -60,19 +104,18 @@ const OurTeam = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full h-auto md:h-[130vh] px-4 sm:px-6 py-12 sm:py-20 bg-gray-400 overflow-hidden flex items-center justify-center"
+      className="w-full h-[130vh] px-6 py-20 bg-gray-400 overflow-hidden flex items-center justify-center"
     >
-      <div className="relative w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-8">
-        
+      <div className="relative w-full max-w-6xl h-[500px] flex items-center justify-center">
         {/* Chart Block */}
         <div
           ref={chartWrapperRef}
-          className="flex flex-col items-center justify-center text-center w-full md:w-1/2"
+          className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center justify-center text-center"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-5xl font-bold mb-6">
             Our Team<span className="text-orange-500">.</span>
           </h2>
-          <div className="w-[250px] sm:w-[300px] md:w-[350px] lg:w-[400px]">
+          <div ref={chartRef} className="w-[300px] sm:w-[350px] md:w-[400px]">
             <Pie data={pieData} />
           </div>
         </div>
@@ -80,13 +123,19 @@ const OurTeam = () => {
         {/* Text Block */}
         <div
           ref={textRef}
-          className="w-full md:w-1/2 opacity-0 text-left"
+          className="w-full md:w-1/2 opacity-0 ml-auto pl-8"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 font-mono">
+          <h2 className="text-3xl font-bold mb-4 font-mono">
             Domain Experts<span className="text-orange-500">.</span>
           </h2>
-          <p className="text-black mb-4 text-sm sm:text-base lg:text-lg">
-            At Dot92, our core strength lies in strategic collaboration. While our advanced RF and microwave technologies are developed in partnership with ChengDu Jiaci in China, our Pakistan-based team manages operations, client relations, and project execution. With junior, mid, and senior-level managers leading different functions, we ensure every project is handled with professionalism, precision, and efficiency.
+          <p className="text-black mb-4">
+            At Dot92, we tap into Pakistan’s deep pool of specialized engineering talent to build high-performance teams tailored for electronic warfare and defense technology.
+          </p>
+          <p className="text-black mb-4">
+            We take care of all operational infrastructure and administrative overhead, allowing you to focus on advancing your mission-critical capabilities.
+          </p>
+          <p className="text-black">
+            Count on us to connect you with dedicated, security-cleared, and innovation-driven professionals who are equipped to deliver in the demanding landscape of modern warfare technology.
           </p>
         </div>
       </div>
