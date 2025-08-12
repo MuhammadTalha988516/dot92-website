@@ -83,10 +83,7 @@ function AboutUs() {
               About Us
             </h3>
             <p className="text-gray-700 mb-4 text-lg max-w-lg">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad vitae
-              excepturi, vel omnis ullam culpa velit, laboriosam necessitatibus
-              hic minus repellat modi, temporibus odio exercitationem repellendus
-              labore! Quibusdam, laborum perferendis!
+              Dot92 is a specialized company providing advanced RF and microwave solutions. Our core business focuses on electronic countermeasures and intelligent unmanned systems. We proudly serve both public and private sector clients, offering customized EW technologies that enhance situational awareness and threat detection
             </p>
             <img
               src={Drone}
