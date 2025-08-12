@@ -130,14 +130,9 @@ const OurTeam = () => {
             Domain Experts<span className="text-orange-500">.</span>
           </h2>
           <p className="text-black mb-4">
-            At Dot92, we tap into Pakistan’s deep pool of specialized engineering talent to build high-performance teams tailored for electronic warfare and defense technology.
+          At Dot92, our core strength lies in strategic collaboration. While our advanced RF and microwave technologies are developed in partnership with ChengDu Jiaci in China, our Pakistan-based team manages operations, client relations, and project execution. With junior, mid, and senior-level managers leading different functions, we ensure every project is handled with professionalism, precision, and efficiency.
           </p>
-          <p className="text-black mb-4">
-            We take care of all operational infrastructure and administrative overhead, allowing you to focus on advancing your mission-critical capabilities.
-          </p>
-          <p className="text-black">
-            Count on us to connect you with dedicated, security-cleared, and innovation-driven professionals who are equipped to deliver in the demanding landscape of modern warfare technology.
-          </p>
+          
         </div>
       </div>
     </section>
