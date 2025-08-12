@@ -27,7 +27,7 @@ function Footer() {
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
               <li><Link to="/electronic-warfare" className="hover:underline">Electronic Warfare</Link></li>
-              <li><Link to="/electronic-warfare" className="hover:underline">Our Expertise</Link></li>
+              
               <li><Link to="/rf-mw-components" className="hover:underline">RF and MW Components</Link></li>
             </ul>
           </div>
@@ -38,6 +38,7 @@ function Footer() {
             <ul className="space-y-2">
               <li><Link to="/about" className="hover:underline">Our Affiliates</Link></li>
               <li><Link to="/about" className="hover:underline">Our Team</Link></li>
+              <li><Link to="/electronic-warfare" className="hover:underline">Our Expertise</Link></li>
               <li><Link to="/contact" className="hover:underline">Contact Us</Link></li>
             </ul>
           </div>

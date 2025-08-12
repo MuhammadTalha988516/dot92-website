@@ -126,10 +126,10 @@ const OurTeam = () => {
           ref={textRef}
           className="w-full md:w-1/2 opacity-0 md:ml-auto md:pl-8 text-center md:text-left"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 font-mono">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 font-mono font-extrabold">
             Domain Experts<span className="text-orange-500">.</span>
           </h2>
-          <p className="text-black mb-4">
+          <p className="text-black mb-4 font-bold">
           At Dot92, our core strength lies in strategic collaboration. While our advanced RF and microwave technologies are developed in partnership with ChengDu Jiaci in China, our Pakistan-based team manages operations, client relations, and project execution. With junior, mid, and senior-level managers leading different functions, we ensure every project is handled with professionalism, precision, and efficiency.
           </p>
           

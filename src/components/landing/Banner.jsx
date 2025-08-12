@@ -20,12 +20,10 @@ function Banner() {
         <h1 className="text-white text-3xl sm:text-5xl font-bold mb-4 mt-32">
           Welcome to Dot92
         </h1>
-        <p className="text-white text-base sm:text-lg max-w-xl mb-8">
+        <p className="text-orange-500 text-base sm:text-lg max-w-xl mb-8 font-extrabold">
          Partners in Capacity Building
         </p>
-        <p className="text-white max-w-xl text-lg">
-          Dot92 is a specialized company providing advanced RF and microwave solutions. Our core business focuses on electronic countermeasures and intelligent unmanned systems. We proudly serve both public and private sector clients, offering customized EW technologies that enhance situational awareness and threat detection
-        </p>
+        
         <br />
         
         <div className="flex flex-col sm:flex-row gap-2 ">

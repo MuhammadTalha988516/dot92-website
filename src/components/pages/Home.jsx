@@ -1,6 +1,6 @@
 import Navbar from "../home/Navbar"
 import Banner from "../landing/Banner"
-// import AboutUs from "../landing/AboutUs"
+import AboutUs from "../landing/AboutUs"
 import Partners from "../landing/Partners"
 import Footer from "../home/Footer"
 import AboutCompany from "../landing/AboutCompany"
@@ -20,6 +20,7 @@ function Home() {
       />
       <Navbar />
       <Banner />
+      <AboutUs />
       <LeadingProjects/>
       <Partners />
       <AboutCompany/>

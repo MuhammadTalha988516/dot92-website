@@ -6,8 +6,8 @@ const OurOffices = () => {
     address:
       "79/80, 4th Floor, Executive Block, Gulberg Greens, Islamabad (44600)",
     phone:"+92 300 5146422",
-    pbx: "+92 515155900",
-    fax: "+92 515155955",
+    pbx: "+92 515 155900",
+    fax: "+92 515 155955",
     emails: [
       "info@dot92.com",
       "cm@dot92.com",
