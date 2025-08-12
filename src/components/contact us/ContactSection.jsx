@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import cbg from "../../assets/cbg.webp";
+import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
+  const formRef = useRef();
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -22,16 +25,30 @@ const ContactSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("✅ Your message has been recorded!");
-    setFormData({
-      firstName: "",
-      lastName: "",
-      companyName: "",
-      email: "",
-      contactNo: "",
-      inquiry: "",
-    });
+
+    emailjs
+      .sendForm(
+        "service_7zqz7mr", // your service ID
+        "template_q1hrvee", // your template ID
+        formRef.current,
+        "Mo1dXuucliG2K50ka" // your public key
+      )
+      .then(
+        () => {
+          alert("✅ Message sent successfully!");
+          setFormData({
+            firstName: "",
+            lastName: "",
+            companyName: "",
+            email: "",
+            contactNo: "",
+            inquiry: "",
+          });
+        
+        (error) => {
+          alert("❌ Failed to send: " + error.text);
+        }
+      );
   };
 
   return (
@@ -51,7 +68,7 @@ const ContactSection = () => {
             Drop us a line
           </h1>
 
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
             {/* First & Last Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -111,7 +128,7 @@ const ContactSection = () => {
               />
             </div>
 
-            {/* Contact No - Required */}
+            {/* Contact No */}
             <div>
               <label className="text-xs font-semibold text-gray-500 block mb-1">
                 Contact No.*
@@ -155,7 +172,7 @@ const ContactSection = () => {
           className="flex flex-col justify-center items-center text-center p-8 rounded-md text-white bg-center bg-no-repeat min-h-[600px]"
           style={{
             backgroundImage: `url(${cbg})`,
-            backgroundSize: "contain",
+            backgroundSize: "cover", // changed to cover
           }}
         >
           <h2 className="text-2xl font-bold mb-2">We are here to help!</h2>

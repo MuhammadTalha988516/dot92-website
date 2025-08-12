@@ -6,9 +6,14 @@ import Navbar from "../home/Navbar";
 import Footer from "../home/Footer";
 import LoadingScreen from "../contact us/LoadingScreen";
 import SEO from "../SEO"
+import emailjs from "@emailjs/browser";
+
+
 
 const Contact = () => {
-const [loading, setLoading] = useState(true);
+
+  
+  const [loading, setLoading] = useState(true);
 
 useEffect(() => {
 const timer = setTimeout(() => setLoading(false), 3000);
