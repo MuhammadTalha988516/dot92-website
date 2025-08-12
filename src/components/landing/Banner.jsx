@@ -11,15 +11,13 @@ function Banner() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-[100vh] object-cover"
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
-
+     
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 flex flex-col items-start justify-center h-full">
-        <h1 className="text-white text-3xl sm:text-5xl font-bold mb-4">
+        <h1 className="text-white text-3xl sm:text-5xl font-bold mb-4 mt-40">
           Welcome to Dot92
         </h1>
         <p className="text-white text-base sm:text-lg max-w-xl mb-8">

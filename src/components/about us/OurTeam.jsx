@@ -103,7 +103,7 @@ const OurTeam = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-full h-[190vh] md:h-[130vh] px-6 py-20 bg-gray-400 overflow-hidden flex items-center justify-center"
+      className="w-full h-[190vh] md:h-[90vh] px-6 py-20 bg-gray-400 overflow-hidden flex items-center justify-center"
     >
       <div className="relative w-full max-w-6xl h-auto flex flex-col md:flex-row items-center md:justify-center gap-8">
         

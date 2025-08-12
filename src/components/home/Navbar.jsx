@@ -24,7 +24,7 @@ function Navbar() {
           <img
             src={Logo}
             alt="logo"
-            className="h-40 w-auto object-contain cursor-pointer"
+            className="h-35 w-auto object-contain cursor-pointer"
           />
         </NavLink>
 
@@ -139,3 +139,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
