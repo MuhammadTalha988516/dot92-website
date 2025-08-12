@@ -58,13 +58,13 @@ const AboutBanner = () => {
       <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4">
         <h1
           ref={titleRef}
-          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold mb-6 mt-20"
+          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold mb-6 mt-20 text-gray-900 font-mono"
         >
           {aboutBannerData.title}
         </h1>
         <p
           ref={textRef}
-          className="text-base sm:text-xl lg:text-2xl max-w-4xl sm:max-w-5xl mx-auto"
+          className="text-base sm:text-xl lg:text-2xl max-w-4xl sm:max-w-5xl mx-auto text-gray-900 font-sans"
         >
           {aboutBannerData.description}
         </p>

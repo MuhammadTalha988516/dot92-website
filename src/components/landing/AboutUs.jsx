@@ -80,7 +80,7 @@ function AboutUs() {
           {/* TEXT FIRST */}
           <div className="flex flex-col gap-6 mb-16">
             <h3 className="text-black text-3xl font-semibold mb-4 border-t-2 border-orange-600 pt-4 w-max">
-              About Us
+              Dot92
             </h3>
             <p className="text-gray-700 mb-4 text-lg max-w-lg">
               Dot92 is a specialized company providing advanced RF and microwave solutions. Our core business focuses on electronic countermeasures and intelligent unmanned systems. We proudly serve both public and private sector clients, offering customized EW technologies that enhance situational awareness and threat detection
