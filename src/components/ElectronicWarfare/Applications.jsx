@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { FaPlane, FaSatelliteDish, FaHelicopter } from "react-icons/fa";
 import { TbDrone } from "react-icons/tb";
 import { FcElectronics } from "react-icons/fc";
@@ -29,9 +29,18 @@ function getIcon(name) {
 export default function Applications() {
   const slidesRef = useRef([]);
   const containerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect screen size
+  useEffect(() => {
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
 
   useLayoutEffect(() => {
-    if (!slidesRef.current.length) return;
+    if (!slidesRef.current.length || isMobile) return;
 
     let ctx = gsap.context(() => {
       gsap.set(slidesRef.current, { transformPerspective: 1000 });
@@ -68,62 +77,24 @@ export default function Applications() {
     }, containerRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isMobile]);
 
   return (
     <section ref={containerRef} className="bg-orange-700 text-white py-20 px-4 md:px-20">
-      <h2 className="text-3xl font-bold mb-12 text-center">Applications</h2>
+      <h2 className="text-3xl font-bold mb-12 text-center">Projects</h2>
 
-      <Swiper
-        modules={[Pagination]}
-        spaceBetween={50}
-        slidesPerView={3}
-        centeredSlides={true}
-        loop={true}
-        pagination={{ clickable: true }}
-        onSwiper={(swiper) => {
-          const container = swiper.el;
-          let lastMoveTime = 0;
-          const delay = 800;
-
-          container.addEventListener("mousemove", (e) => {
-            const now = Date.now();
-            if (now - lastMoveTime < delay) return;
-
-            const rect = container.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const zoneSize = rect.width * 0.2;
-
-            if (x < zoneSize) {
-              swiper.slidePrev();
-              lastMoveTime = now;
-            } else if (x > rect.width - zoneSize) {
-              swiper.slideNext();
-              lastMoveTime = now;
-            }
-          });
-        }}
-        onSlideChange={(swiper) => {
-          swiper.slides.forEach((slide) => {
-            slide.style.transform = "scale(0.85)";
-            slide.style.opacity = "0.5";
-          });
-          const active = swiper.slides[swiper.activeIndex];
-          active.style.transform = "scale(1)";
-          active.style.opacity = "1";
-        }}
-      >
-        {applicationsData.map((item, index) => (
-          <SwiperSlide key={index}>
+      {isMobile ? (
+        
+        <div className="flex flex-col gap-6">
+          {applicationsData.map((item, index) => (
             <div
-              ref={(el) => (slidesRef.current[index] = el)}
-              className="relative bg-white text-orange-600 p-6 pt-16 rounded-xl shadow-lg h-[400px] transition-transform duration-300 hover:-translate-y-3 flex flex-col items-center"
+              key={index}
+              className="bg-white text-orange-600 p-6 pt-12 rounded-xl shadow-lg flex flex-col items-center"
             >
               <div className="bg-yellow-500 rounded-full p-4 shadow-md flex justify-center items-center mb-4">
                 {getIcon(item.icon)}
               </div>
               <h3 className="text-xl font-semibold mb-2 text-center">{item.title}</h3>
-
               {Array.isArray(item.description) ? (
                 <ul className="list-disc list-inside text-sm text-gray-600 space-y-1 text-left">
                   {item.description.map((point, i) => (
@@ -134,9 +105,74 @@ export default function Applications() {
                 <p className="text-sm text-gray-600 text-center">{item.description}</p>
               )}
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </div>
+      ) : (
+        // 💻 Desktop version — Swiper carousel
+        <Swiper
+          modules={[Pagination]}
+          spaceBetween={50}
+          slidesPerView={3}
+          centeredSlides={true}
+          loop={true}
+          pagination={{ clickable: true }}
+          onSwiper={(swiper) => {
+            const container = swiper.el;
+            let lastMoveTime = 0;
+            const delay = 800;
+
+            container.addEventListener("mousemove", (e) => {
+              const now = Date.now();
+              if (now - lastMoveTime < delay) return;
+
+              const rect = container.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const zoneSize = rect.width * 0.2;
+
+              if (x < zoneSize) {
+                swiper.slidePrev();
+                lastMoveTime = now;
+              } else if (x > rect.width - zoneSize) {
+                swiper.slideNext();
+                lastMoveTime = now;
+              }
+            });
+          }}
+          onSlideChange={(swiper) => {
+            swiper.slides.forEach((slide) => {
+              slide.style.transform = "scale(0.85)";
+              slide.style.opacity = "0.5";
+            });
+            const active = swiper.slides[swiper.activeIndex];
+            active.style.transform = "scale(1)";
+            active.style.opacity = "1";
+          }}
+        >
+          {applicationsData.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div
+                ref={(el) => (slidesRef.current[index] = el)}
+                className="relative bg-white text-orange-600 p-6 pt-16 rounded-xl shadow-lg h-[400px] transition-transform duration-300 hover:-translate-y-3 flex flex-col items-center"
+              >
+                <div className="bg-yellow-500 rounded-full p-4 shadow-md flex justify-center items-center mb-4">
+                  {getIcon(item.icon)}
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-center">{item.title}</h3>
+
+                {Array.isArray(item.description) ? (
+                  <ul className="list-disc list-inside text-sm text-gray-600 space-y-1 text-left">
+                    {item.description.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm text-gray-600 text-center">{item.description}</p>
+                )}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </section>
   );
 }

@@ -7,11 +7,11 @@ const ContactSection = () => {
   const formRef = useRef();
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    companyName: "",
+    first_name: "",
+    last_name: "",
+    company_name: "",
     email: "",
-    contactNo: "",
+    contact_no: "",
     inquiry: "",
   });
 
@@ -26,29 +26,44 @@ const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Allow only specific email domains
+    const emailRegex =
+      /^[^\s@]+@(gmail\.com|outlook\.com|yahoo\.com|hotmail\.com|icloud\.com|aol\.com)$/i;
+    if (!emailRegex.test(formData.email)) {
+      alert("❌ Please use a valid email");
+      return;
+    }
+
+    // 1️⃣ Send main email to you
     emailjs
       .sendForm(
-        "service_7zqz7mr", // your service ID
-        "template_q1hrvee", // your template ID
+        "service_mezyizo", // Service ID
+        "template_q1hrvee", // Template ID (main)
         formRef.current,
-        "Mo1dXuucliG2K50ka" // your public key
+        "Mo1dXuucliG2K50ka" // Public key
       )
-      .then(
-        () => {
-          alert("✅ Message sent successfully!");
-          setFormData({
-            firstName: "",
-            lastName: "",
-            companyName: "",
-            email: "",
-            contactNo: "",
-            inquiry: "",
-          });
-        
-        (error) => {
-          alert("❌ Failed to send: " + error.text);
-        }
-      );
+      .then(() => {
+        // 2️⃣ Send auto-reply to user
+        emailjs.sendForm(
+          "service_mezyizo", // Same service
+          "template_8rgjx1c", // Your auto-reply template ID
+          formRef.current,
+          "Mo1dXuucliG2K50ka"
+        );
+
+        alert("✅ Message sent successfully!");
+        setFormData({
+          first_name: "",
+          last_name: "",
+          company_name: "",
+          email: "",
+          contact_no: "",
+          inquiry: "",
+        });
+      })
+      .catch((error) => {
+        alert(`❌ Failed to send: ${error.text}`);
+      });
   };
 
   return (
@@ -77,8 +92,8 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="text"
-                  name="firstName"
-                  value={formData.firstName}
+                  name="first_name"
+                  value={formData.first_name}
                   onChange={handleChange}
                   required
                   className="w-full border border-gray-300 px-4 py-2 rounded-md"
@@ -90,8 +105,8 @@ const ContactSection = () => {
                 </label>
                 <input
                   type="text"
-                  name="lastName"
-                  value={formData.lastName}
+                  name="last_name"
+                  value={formData.last_name}
                   onChange={handleChange}
                   required
                   className="w-full border border-gray-300 px-4 py-2 rounded-md"
@@ -106,8 +121,8 @@ const ContactSection = () => {
               </label>
               <input
                 type="text"
-                name="companyName"
-                value={formData.companyName}
+                name="company_name"
+                value={formData.company_name}
                 onChange={handleChange}
                 className="w-full border border-gray-300 px-4 py-2 rounded-md"
               />
@@ -131,14 +146,13 @@ const ContactSection = () => {
             {/* Contact No */}
             <div>
               <label className="text-xs font-semibold text-gray-500 block mb-1">
-                Contact No.*
+                Contact No.
               </label>
               <input
                 type="text"
-                name="contactNo"
-                value={formData.contactNo}
+                name="contact_no"
+                value={formData.contact_no}
                 onChange={handleChange}
-                required
                 className="w-full border border-gray-300 px-4 py-2 rounded-md"
               />
             </div>
@@ -169,10 +183,9 @@ const ContactSection = () => {
 
         {/* Right: Background image + text */}
         <div
-          className="flex flex-col justify-center items-center text-center p-8 rounded-md text-white bg-center bg-no-repeat min-h-[600px]"
+          className="flex flex-col justify-center items-center text-center p-8 rounded-md text-white bg-center bg-cover min-h-[600px]"
           style={{
             backgroundImage: `url(${cbg})`,
-            backgroundSize: "cover", // changed to cover
           }}
         >
           <h2 className="text-2xl font-bold mb-2">We are here to help!</h2>

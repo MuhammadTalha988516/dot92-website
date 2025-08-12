@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { aboutBannerData } from '../Data/data'; 
+import { aboutBannerData } from '../Data/data';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,8 +13,7 @@ const AboutBanner = () => {
   useLayoutEffect(() => {
     if (!sectionRef.current || !titleRef.current || !textRef.current) return;
 
-    let ctx;
-    ctx = gsap.context(() => {
+    let ctx = gsap.context(() => {
       gsap.from(titleRef.current, {
         opacity: 0,
         y: 60,
@@ -41,29 +40,31 @@ const AboutBanner = () => {
   }, []);
 
   return (
-<section
-  ref={sectionRef}
-  className="relative min-h-[500px] sm:min-h-[650px] lg:min-h-[800px] w-full flex items-center justify-center bg-no-repeat bg-cover"
-  style={{
-    backgroundImage: `url(${aboutBannerData.backgroundImage})`,
-    backgroundPosition: "center",
-    backgroundSize: "100%", // zoom in so only 1 drone fits
-  }}
->
-
-
-
+    <section
+      ref={sectionRef}
+      className="
+        relative min-h-screen w-full 
+        flex items-center justify-center 
+        bg-no-repeat bg-center bg-cover
+      "
+      style={{
+        backgroundImage: `url(${aboutBannerData.backgroundImage})`,
+      }}
+    >
+      {/* Dark overlay */}
       <div className="absolute inset-0  bg-opacity-60 z-0"></div>
-      <div className=" flex flex-col items-center justify-center text-center text-white px-4">
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4">
         <h1
           ref={titleRef}
-          className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-10"
+          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold mb-6 mt-20"
         >
           {aboutBannerData.title}
         </h1>
         <p
           ref={textRef}
-          className="text-gray-200 text-lg sm:text-xl lg:text-2xl max-w-4xl sm:max-w-5xl mx-auto"
+          className="text-base sm:text-xl lg:text-2xl max-w-4xl sm:max-w-5xl mx-auto"
         >
           {aboutBannerData.description}
         </p>
