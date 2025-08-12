@@ -2,7 +2,8 @@ import React from "react";
 
 export default function LeadingProjects() {
   return (
-    <section className="w-full py-16 px-4 bg-gray-50">
+    <section className="relative z-10 w-full py-16 pt-24 px-4 bg-gray-50">
+
       <div className="max-w-[1440px] mx-auto">
 
         {/* ===== DESKTOP VERSION ===== */}
@@ -89,19 +90,19 @@ export default function LeadingProjects() {
               {/* ===== MOBILE VERSION ===== */}
         <div className="block md:hidden">
           {/* SECTION HEADER */}
-          <div className="mb-12 ml-4">
-            <h4 className="text-black text-lg font-semibold mb-2">
-              Technology Is What We Do
-            </h4>
-            <h1 className="text-orange-500 text-4xl font-bold mb-6 max-w-4xl">
-              Engineering the Future of Defense and Connectivity
-            </h1>
-          </div>
+          <div className="mb-12 ">  {/* ml-4 se ml-2 kiya hai */}
+    <h4 className="text-black text-lg font-semibold mb-2">
+      Technology Is What We Do
+    </h4>
+    <h1 className="text-orange-500 text-4xl font-bold mb-6  max-w-4xl">
+      Engineering the Future of Defense and Connectivity
+    </h1>
+  </div>
 
           {/* SECTION 1 */}
           <div className="flex flex-col gap-6 mb-16">
             <div>
-              <h3 className="text-black text-3xl font-semibold mb-4 border-t-2 border-orange-600 pt-4 w-max">
+              <h3 className="text-black text-3xl font-semibold mb-4 border-t-2 border-orange-600 pt-4  w-max">
                 Electronic Warfare
               </h3>
               <p className="text-gray-700 mb-4 text-lg max-w-lg">

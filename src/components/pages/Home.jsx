@@ -20,8 +20,6 @@ function Home() {
       />
       <Navbar />
       <Banner />
-      
-      {/* <AboutUs /> */}
       <LeadingProjects/>
       <Partners />
       <AboutCompany/>
