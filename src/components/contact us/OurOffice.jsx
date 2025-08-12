@@ -5,7 +5,7 @@ const OurOffices = () => {
     country: "Pakistan",
     address:
       "79/80, 4th Floor, Executive Block, Gulberg Greens, Islamabad (44600)",
-    phone: "+92 5146422",
+    phone:"+92 300 5146422",
     pbx: "+92 515155900",
     fax: "+92 515155955",
     emails: [
@@ -45,7 +45,7 @@ const OurOffices = () => {
                 Phone Number
               </p>
               <p className="font-semibold text-gray-700 mb-4">
-                {officeData.phone}
+                Phone: {officeData.phone}
                 <br />
                 PIBX: {officeData.pbx}
                 <br />

@@ -33,18 +33,18 @@ export const ouraffiliates = [
 export const expertiseData = [
   {
     icon: MdAirplay,
-    title: "Electronic Attack",
+    title: "Electronic Warfare",
     description: "Disrupt, deny, degrade, destroy, or deceive",
   },
   {
     icon: FaShieldAlt,
-    title: "Electronic Protection",
+    title: "Electronic Counter-Countermeasures (ECCM)",
     description: "Preventing a receiver from being jammed or deceived",
   },
   {
     icon: FaBroadcastTower,
     title: "Electronic Support",
-    description: "Sensing of the electromagnetic spectrum",
+    description: "Detection, Measurement, and Analysis of Electromagnetic Spectrum",
   },
 ];
 
